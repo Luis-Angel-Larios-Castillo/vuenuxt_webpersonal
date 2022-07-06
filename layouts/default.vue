@@ -19,8 +19,11 @@
             />
           </v-avatar>
           <br />
-          <p class="font-weight-medium">Luis Angel Larios Castillo</p>
+          <!--  <p class="font-weight-medium">Luis Angel Larios Castillo</p> -->
+          <Profile :ubication="actualubication" />
         </div>
+        <br />
+        <v-divider></v-divider>
         <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
@@ -29,6 +32,7 @@
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
+        <v-divider></v-divider>
       </v-list>
     </v-navigation-drawer>
 
@@ -87,7 +91,7 @@
     </v-footer> -->
 
     <v-footer dark padless>
-      <v-card flat tile class="indigo darken-4 white--text text-center">
+      <v-card flat tile class="white--text text-center" style="background-color: #154360">
         <v-card-text>
           <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
             <v-icon size="24px">
@@ -117,27 +121,27 @@
 </template>
 
 <script>
+import Profile from "../pages/_comp_index/_profile.vue";
 export default {
+  components: {
+    Profile,
+  },
   data() {
     return {
       clipped: false,
       drawer: false,
       fixed: false,
+      actualubication: true,
       items: [
         {
           icon: "mdi-home",
-          title: "Home",
+          title: "Principal",
           to: "/",
         },
-        /*  {
-          icon: "mdi-chart-bubble",
-          title: "Inspire",
-          to: "/inspire",
-        }, */
         {
           icon: "mdi-chart-bubble",
-          title: "Inspire",
-          to: "/inspire",
+          title: "Experiencia",
+          to: "/experiencia",
         },
       ],
       miniVariant: false,
