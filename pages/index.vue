@@ -32,23 +32,17 @@
         <v-list-item-title class="text-h5 mb-1 bold" style="color: #154360">
           <strong><i>Datos de interés:</i></strong>
         </v-list-item-title>
-        Ingeniero en tecnologías de la información con más de un año de experiencia en él
-        área de desarrollo de software, creando soluciones innovadoras con las tecnologías
-        con mayor demanda en el mercado, obtuve mi título en la universidad tecnológica de
-        Tlaxcala, logrando una formación académica bastante enriquecedora en el campo de
-        tecnologías de la información, área multimedia y comercio electrónico.
+        <p class="text-h6">
+          Ingeniero en tecnologías de la información con más de un año de experiencia en
+          él área de desarrollo de software, creando soluciones innovadoras con las
+          tecnologías con mayor demanda en el mercado, obtuve mi título en la universidad
+          tecnológica de Tlaxcala, logrando una formación académica bastante enriquecedora
+          en el campo de tecnologías de la información, área multimedia y comercio
+          electrónico.
+        </p>
         <br />
 
         <Profile :ubication="actualubication" />
-
-        <!--  <br />
-        Telefono: +527481075651
-        <br />
-        Correo: luis44larios.99@gmail.com
-        <br />
-        Linkedin: luis angel larios castillo
-        <br />
-        facebook: Luis Angel Larios -->
       </v-col>
     </v-row>
     <br />
@@ -67,12 +61,14 @@
         <v-list-item-title class="text-h5 mb-1 bold" style="color: #154360">
           <strong><i>Desarrollador Full Stack:</i></strong>
         </v-list-item-title>
-        Crear y diseñar páginas y sistemas web, basados en HTML5, CSS3, Java Script, PHP,
-        Django y Vue.js, desarrollar aplicaciones móviles haciendo uso Android Studio,
-        Ionic y React Native, analizar los modelos, requerimientos y diagramas UML para su
-        desarrollo. Emplear gestores de contenido como lo es WordPress para la creación de
-        sitios y blogs. Manejar herramientas de diseño de la paquetería de Adobe y Cinema
-        4D.
+        <p class="text-h6">
+          Crear y diseñar páginas y sistemas web, basados en HTML5, CSS3, Java Script,
+          PHP, Django y Vue.js, desarrollar aplicaciones móviles haciendo uso Android
+          Studio, Ionic y React Native, analizar los modelos, requerimientos y diagramas
+          UML para su desarrollo. Emplear gestores de contenido como lo es WordPress para
+          la creación de sitios y blogs. Manejar herramientas de diseño de la paquetería
+          de Adobe y Cinema 4D.
+        </p>
       </v-col>
       <v-col>
         <v-img
@@ -93,7 +89,7 @@
 
     <v-container fluid>
       <v-data-iterator
-        :items="items"
+        :items="newlistaitems"
         :search="search"
         :sort-by="sortBy.toLowerCase()"
         :sort-desc="sortDesc"
@@ -122,17 +118,18 @@
               ></v-text-field>
             </v-col>
             <v-col>
-              <template v-if="$vuetify.breakpoint.mdAndUp">
-                <v-select
-                  v-model="sortBy"
-                  flat
-                  solo-inverted
-                  hide-details
-                  :items="keys"
-                  prepend-inner-icon="mdi-magnify"
-                  label="Ordenar por"
-                ></v-select>
-              </template>
+              <v-select
+                v-model="categoriaselected"
+                flat
+                solo-inverted
+                hide-details
+                :items="categorias"
+                prepend-inner-icon="mdi-magnify"
+                label="Ordenar por"
+                item-text="name"
+                item-value="name"
+                v-on:change="filtrarCategoria()"
+              ></v-select>
             </v-col>
           </v-row>
         </template>
@@ -158,8 +155,16 @@
                     />
                   </v-col>
                   <v-col>
-                    <p>{{ item.nombre }}</p>
-                    <p>{{ item.categoria }}</p>
+                    <p class="text-h6">{{ item.nombre }}</p>
+                    <!-- <p>{{ item.categoria }}</p> -->
+                    <v-btn
+                      color="primary"
+                      text
+                      dark
+                      @click="(dialogdetalles = true), (detallesitemselect = item)"
+                    >
+                      Ver mas
+                    </v-btn>
 
                     <!-- {{ item.description }} -->
                   </v-col>
@@ -171,6 +176,20 @@
       </v-data-iterator>
     </v-container>
 
+    <v-dialog v-model="dialogdetalles" max-width="300">
+      <v-card>
+        <v-card-title class="text-h5 mb-5">
+          {{ detallesitemselect.nombre }}
+        </v-card-title>
+        <v-card-subtitle style="text-align: justify" justify-content="center">
+          <strong> Categoría: </strong> {{ detallesitemselect.categoria }}
+        </v-card-subtitle>
+
+        <v-card-subtitle style="text-align: justify" justify-content="center">
+          <strong> Experiencia: </strong> {{ detallesitemselect.description }}
+        </v-card-subtitle>
+      </v-card>
+    </v-dialog>
     <br />
     <br />
   </div>
@@ -178,6 +197,7 @@
 
 <script>
 import Profile from "./_comp_index/_profile.vue";
+import conocimientos from "../assets/json/conocimientos.json";
 export default {
   components: {
     Profile,
@@ -186,180 +206,40 @@ export default {
     return {
       actualubication: false,
       alert: true,
-
+      dialogdetalles: false,
+      detallesitemselect: {},
       //data iteraror
 
       search: "",
       filter: {},
       sortDesc: false,
-
-      sortBy: "categoria",
-      keys: ["Nombre", "Categoria"],
-      items: [
+      categoriaselected: "",
+      newlistaitems: [],
+      categorias: [
         {
-          nombre: "Word",
-          categoria: "Suite Ofimática",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
+          name: "Todas las categorías",
+          value: "all",
         },
         {
-          nombre: "Power Point",
-          categoria: "Suite Ofimática",
-          icon: "programacion/html-5.png",
-          description: "Gestionar documentos",
+          name: "Suite Ofimática",
+          value: "office",
         },
         {
-          nombre: "Excel",
-          categoria: "Suite Ofimática",
-          icon: "programacion/js.png",
-          description: "Gestionar documentos",
+          name: "Diseño Gráfico",
+          value: "disaing",
         },
         {
-          nombre: "Access",
-          categoria: "Suite Ofimática",
-          icon: "programacion/php.png",
-          description: "Gestionar documentos",
+          name: "Desarrollo de Software",
+          value: "developer",
         },
         {
-          nombre: "Publisher",
-          categoria: "Suite Ofimática",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-        {
-          nombre: "Project",
-          categoria: "Suite Ofimática",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-
-        //Programas de diseño
-        {
-          nombre: "Photoshop",
-          categoria: "Diseño Gráfico",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-        {
-          nombre: "Premier Pro",
-          categoria: "Diseño Gráfico",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-        {
-          nombre: "Animate",
-          categoria: "Diseño Gráfico",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-        {
-          nombre: "After Effects",
-          categoria: "Diseño Gráfico",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-        {
-          nombre: "Audition",
-          categoria: "Diseño Gráfico",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-
-        //Programas de desarrollo de software
-
-        {
-          nombre: "PHP",
-          categoria: "Desarrollo de software",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-
-        {
-          nombre: "Java Script",
-          categoria: "Desarrollo de software",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-
-        {
-          nombre: "Django",
-          categoria: "Desarrollo de software",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-
-        {
-          nombre: "Android Studio",
-          categoria: "Desarrollo de software",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-
-        {
-          nombre: "Nuxt.js",
-          categoria: "Desarrollo de software",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-
-        {
-          nombre: "Vue.js",
-          categoria: "Desarrollo de software",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-
-        {
-          nombre: "Ionic",
-          categoria: "Desarrollo de software",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-        {
-          nombre: "React",
-          categoria: "Desarrollo de software",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-        {
-          nombre: "React Native",
-          categoria: "Desarrollo de software",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-
-        {
-          nombre: "HTML 5",
-          categoria: "Desarrollo de software",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-        {
-          nombre: "CSS 3",
-          categoria: "Desarrollo de software",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-
-        {
-          nombre: "Bootstrap",
-          categoria: "Desarrollo de software",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-        {
-          nombre: "Vuetify",
-          categoria: "Desarrollo de software",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
-        },
-        {
-          nombre: "Material UI",
-          categoria: "Desarrollo de software",
-          icon: "programacion/css-3.png",
-          description: "Gestionar documentos",
+          name: "Diagramas y Maquetado",
+          value: "modeler",
         },
       ],
+      sortBy: "categoria",
+      keys: ["Nombre", "Categoria"],
+      items: conocimientos,
     };
   },
   computed: {
@@ -367,6 +247,27 @@ export default {
       return this.keys.filter((key) => key !== "Name");
     },
   },
-  methods: {},
+
+  created() {
+    this.listacompleta();
+  },
+  methods: {
+    listacompleta() {
+      this.newlistaitems = this.items;
+    },
+    filtrarCategoria() {
+      this.newlistaitems = [];
+
+      if (this.categoriaselected == "Todas las categorías") {
+        this.listacompleta();
+      } else {
+        this.items.forEach((item) => {
+          if (item.categoria == this.categoriaselected) {
+            this.newlistaitems.push(item);
+          }
+        });
+      }
+    },
+  },
 };
 </script>

@@ -1,0 +1,181 @@
+[
+    {
+      "nombre": "Word",
+      "categoria": "Suite Ofimática",
+      "icon": "office/word.png",
+      "description": "Gestionar documentos"
+    },
+    {
+      "nombre": "Power Point",
+      "categoria": "Suite Ofimática",
+      "icon": "office/powerpoint.png",
+      "description": "Gestionar documentos"
+    },
+    {
+      "nombre": "Excel",
+      "categoria": "Suite Ofimática",
+      "icon": "office/excel.png",
+      "description": "Gestionar documentos"
+    },
+    {
+      "nombre": "Access",
+      "categoria": "Suite Ofimática",
+      "icon": "office/access.png",
+      "description": "Gestionar documentos"
+    },
+    {
+      "nombre": "Publisher",
+      "categoria": "Suite Ofimática",
+      "icon": "office/publisher.png",
+      "description": "Gestionar documentos"
+    },
+    {
+      "nombre": "Project",
+      "categoria": "Suite Ofimática",
+      "icon": "office/project.png",
+      "description": "Gestionar documentos"
+    },
+    {
+      "nombre": "Photoshop",
+      "categoria": "Diseño Gráfico",
+      "icon": "disaing/photoshop.png",
+      "description": "Gestionar documentos"
+    },
+   
+    {
+      "nombre": "Animate",
+      "categoria": "Diseño Gráfico",
+      "icon": "disaing/animate.png",
+      "description": "Gestionar documentos"
+    },
+    {
+        "nombre": "Premier Pro",
+        "categoria": "Diseño Gráfico",
+        "icon": "disaing/premiere-pro.png",
+        "description": "Gestionar documentos"
+      },
+    {
+      "nombre": "After Effects",
+      "categoria": "Diseño Gráfico",
+      "icon": "disaing/despues-de-los-efectos.png",
+      "description": "Gestionar documentos"
+    },
+    {
+      "nombre": "Audition",
+      "categoria": "Diseño Gráfico",
+      "icon": "disaing/adobe-audition.png",
+      "description": "Gestionar documentos"
+    },
+    {
+        "nombre": "XD",
+        "categoria": "Diagramas y Maquetado",
+        "icon": "disaing/xd.png",
+        "description": "Gestionar documentos"
+      },
+    {
+      "nombre": "PHP",
+      "categoria": "Desarrollo de Software",
+      "icon": "programacion/php.png",
+      "description":
+        "Con tres años de experiencia en este lenguage creando paginas web y sistemas POST, con base de datos MYSQLI Y SQLSERVER"
+    },
+
+    {
+      "nombre": "Java Script",
+      "categoria": "Desarrollo de Software",
+      "icon": "programacion/java-script.png",
+      "description":
+        "Con aproximandamente dos años empleando este lenguage para mejorar la interactividad y uso de framewoks"
+    },
+
+    {
+      "nombre": "Django",
+      "categoria": "Desarrollo de Software",
+      "icon": "programacion/django.jpg",
+      "description":
+        "con aproximademnte dos años empleanto este framework para desarrollar backend, apis y puntos grapql"
+    },
+
+    {
+      "nombre": "Android Studio",
+      "categoria": "Desarrollo de Software",
+      "icon": "programacion/androidstudio.png",
+      "description":
+        "Con aproximandamente medio año de experiencia desarrollando aplicaciones moviles locales para dispostivos Android"
+    },
+
+    {
+      "nombre": "Nuxt.js",
+      "categoria": "Desarrollo de Software",
+      "icon": "programacion/nuxt.png",
+      "description":
+        "Con aproximadamete medio año de experiencia desarrollando sistemas web"
+    },
+
+    {
+      "nombre": "Vue.js",
+      "categoria": "Desarrollo de Software",
+      "icon": "programacion/vue.png",
+      "description":
+        "Con aproximandamente dos años de experiencia desarrollado el fronted de sistemas y sistios web"
+    },
+
+    {
+      "nombre": "Ionic",
+      "categoria": "Desarrollo de Software",
+      "icon": "programacion/ionic.png",
+      "description":
+        "Con aproximadamente medio año de experiencia desarrollado aplicaciones moviles hibridas"
+    },
+    {
+      "nombre": "React",
+      "categoria": "Desarrollo de Software",
+      "icon": "programacion/react.png",
+      "description":
+        "con aproximadamente medio año de experiencia desarrollando sistemas y sistios web"
+    },
+    {
+      "nombre": "React Native",
+      "categoria": "Desarrollo de Software",
+      "icon": "programacion/react.png",
+      "description":
+        "con aproximadamente medio año de experiencia desarrollando aplicaciones hibridas con la base de datos de firebase"
+    },
+
+    {
+      "nombre": "HTML 5",
+      "categoria": "Desarrollo de Software",
+      "icon": "programacion/html-5.png",
+      "description":
+        "con aproximadamente cuatro años de experiencia desarrollando la estructura base de las paginas y sistemas web"
+    },
+    {
+      "nombre": "CSS 3",
+      "categoria": "Desarrollo de Software",
+      "icon": "programacion/css-3.png",
+      "description":
+        "con aproximandente cuatro años de experiencia dando estilo a las las paginas y sistemas web"
+    },
+
+    {
+      "nombre": "Bootstrap",
+      "categoria": "Desarrollo de Software",
+      "icon": "programacion/bootstrap.png",
+      "description":
+        "con aproximadamente tres años de experiencia empleando este framework para el uso de estilos web"
+    },
+    {
+      "nombre": "Vuetify",
+      "categoria": "Desarrollo de Software",
+      "icon": "programacion/vuetify.png",
+      "description":
+        "con aproximadamente dos años de experienncia empleado este framework para el uso de estilos web"
+    },
+    {
+      "nombre": "Material UI",
+      "categoria": "Desarrollo de Software",
+      "icon": "programacion/material-ui.png",
+      "description":
+        "con aproximadamente medio año  de experienncia empleado este framework para el uso de estilos web"
+    }
+  ]
