@@ -1,20 +1,18 @@
 <template>
-  <v-row>
-    <v-col class="text-center">
-      <img
-        src="/v.png"
-        alt="Vuetify.js"
-        class="mb-5"
-      >
-  Hola mundo soy luis
-      <blockquote class="blockquote">
-        &#8220;First, solve the problem. Then, write the code.&#8221;
-        <footer>
-          <small>
-            <em>&mdash;John Johnson</em>
-          </small>
-        </footer>
-      </blockquote>
-    </v-col>
-  </v-row>
+  <div>
+    <v-list-item-title class="text-h4 mb-1"> EXPERIENCIA PROFESIONAL: </v-list-item-title>
+
+    <template>
+      <v-timeline>
+        <v-timeline-item>timeline item</v-timeline-item>
+        <v-timeline-item class="text-right"> timeline item </v-timeline-item>
+        <v-timeline-item>timeline item</v-timeline-item>
+      </v-timeline>
+    </template>
+  </div>
 </template>
+<script>
+export default {
+  layout: "secundario",
+};
+</script>

@@ -14,7 +14,7 @@
           <v-avatar size="120" class="mt-5 mb-3">
             <img
               src="../assets/image/img3.jpeg"
-              alt="John"
+              alt="Luis"
               style="border: solid 3px #f5f5f5"
             />
           </v-avatar>
@@ -129,7 +129,7 @@ export default {
   data() {
     return {
       clipped: false,
-      drawer: false,
+      drawer: true,
       fixed: false,
       actualubication: true,
       items: [
