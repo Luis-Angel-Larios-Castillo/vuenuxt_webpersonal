@@ -9,6 +9,11 @@
       dark
       style="background-color: #212529"
     >
+      <v-btn style="float: right; margin: 10px" icon dark @click="drawer = !drawer">
+        <v-icon>mdi-close</v-icon>
+      </v-btn>
+      <br />
+      <br />
       <v-list>
         <div align="center" justify="center" class="mb-6">
           <v-avatar size="120" class="mt-5 mb-3">

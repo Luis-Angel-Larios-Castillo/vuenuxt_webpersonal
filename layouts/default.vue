@@ -9,6 +9,11 @@
       dark
       style="background-color: #212529"
     >
+      <v-btn style="float: right; margin: 10px" icon dark @click="drawer = !drawer">
+        <v-icon>mdi-close</v-icon>
+      </v-btn>
+      <br />
+      <br />
       <v-list>
         <div align="center" justify="center" class="mb-6">
           <v-avatar size="120" class="mt-5 mb-3">
@@ -32,18 +37,23 @@
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
+
         <v-divider></v-divider>
       </v-list>
     </v-navigation-drawer>
 
-    <v-parallax dark :src="require('../assets/image/img1.jpg')" style="opacity: 0.9">
+    <v-parallax dark :src="require('../assets/image/fondo4.jpg')" height="700">
       <div style="float: right">
-        <v-btn style="float: right" dark icon @click="drawer = !drawer">
-          <v-icon>mdi-menu</v-icon>
+        <v-btn style="float: right; margin: 10px" color="white" @click="drawer = !drawer">
+          <!--   <v-icon>mdi-menu</v-icon> -->
+          Menú
         </v-btn>
       </div>
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
+          <h1 class="text-h1 mb-4 font-weight-black">
+            <strong>Bienvenido a mi web personal</strong>
+          </h1>
           <h1 class="text-h2 mb-4 font-weight-black">
             <strong>LUIS ANGEL LARIOS CASTILLO</strong>
           </h1>
@@ -54,44 +64,15 @@
       </v-row>
     </v-parallax>
 
-    <!--  <v-app-bar :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" /> -->
-    <!--  <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="clipped = !clipped">
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="fixed = !fixed">
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" /> -->
-    <!--  <v-spacer /> -->
-    <!--  <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-menu</v-icon>
-      </v-btn> -->
-    <!--   </v-app-bar> -->
-    <v-main>
-      <v-container>
-        <Nuxt />
-      </v-container>
-    </v-main>
-    <!--  <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light> mdi-repeat </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer> -->
-    <!-- <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer> -->
+    <Nuxt />
 
     <v-footer dark padless>
-      <v-card flat tile class="white--text text-center" style="background-color: #154360">
+      <v-card
+        flat
+        tile
+        class="white--text text-center col-12"
+        style="background-color: #154360"
+      >
         <v-card-text>
           <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
             <v-icon size="24px">
@@ -101,19 +82,13 @@
         </v-card-text>
 
         <v-card-text class="white--text pt-0">
-          Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris
-          cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id
-          ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis
-          commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla
-          placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum
-          eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et
-          magnis dis parturient montes, nascetur ridiculus mus.
+          Luis Angel Larios Castillo - Programador Full Stack
         </v-card-text>
 
         <v-divider></v-divider>
 
         <v-card-text class="white--text">
-          {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+          {{ new Date().getFullYear() }} — <strong>Copyright</strong>
         </v-card-text>
       </v-card>
     </v-footer>
@@ -122,6 +97,7 @@
 
 <script>
 import Profile from "../pages/_comp_index/_profile.vue";
+
 export default {
   components: {
     Profile,
@@ -129,7 +105,7 @@ export default {
   data() {
     return {
       clipped: false,
-      drawer: true,
+      drawer: false,
       fixed: false,
       actualubication: true,
       items: [
@@ -138,19 +114,25 @@ export default {
           title: "Principal",
           to: "/",
         },
-        {
+        /*   {
           icon: "mdi-chart-bubble",
           title: "Experiencia",
           to: "/experiencia",
-        },
+        }, */
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
       title: "Vuetify.js",
-      icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
+      icons: ["mdi-github", "mdi-linkedin", "mdi-twitter"],
+
+      apt_AboutMe: true,
+      apt_ObjProfessional: true,
+      apt_ConoHabi: true,
+      apt_GaleriaProyectos: true,
     };
   },
+  methods: {},
 };
 </script>
 

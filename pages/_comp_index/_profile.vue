@@ -56,14 +56,14 @@
               <v-icon> mdi-linkedin </v-icon>
               Luis Angel Larios Castillo
             </div>
-            <div>
+            <!--  <div>
               <v-icon> mdi-map-marker </v-icon>
               Sanctórum de Lázaro Cárdenas, Tlaxcala
             </div>
             <div>
               <v-icon> mdi-home </v-icon>
               Calle: Rosales S/N, Código Postal : 90230
-            </div>
+            </div> -->
           </div>
 
           <!--  <v-card-actions>

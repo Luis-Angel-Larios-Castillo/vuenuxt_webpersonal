@@ -1,0 +1,7 @@
+[{ "nombre": "Noting Note", "img": "android.png", "fecha":"Sep, 2019","tipo":"Programación" },
+    { "nombre": "Proyecto Navideño", "img": "navidad.png", "fecha":"DIC, 2019","tipo":"Diseño" },
+    { "nombre": "Sitio Web Pinturas", "img": "ppg.png", "fecha":"Mar 2019","tipo":"Programación" },
+
+    { "nombre": "Juego 2D", "img": "juego.png", "fecha":"Jun 2019","tipo":"Programación" },
+    { "nombre": "Tlatlualik Huelink", "img": "app_ionic.png", "fecha":"","tipo":"Programación" },
+    { "nombre": "Proyecto de Holloween", "img": "dia_de_muertos.png", "fecha":"Nov, 2019","tipo":"Diseño" }]
